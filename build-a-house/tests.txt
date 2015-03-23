@@ -1,0 +1,221 @@
+Listening for transport dt_socket at address: 50951
+********* Testing sum **********
+ The sum of all jobs is 114
+
+********* Testing predecessors **********
+ The predecessors for purchase_lot are clojure.lang.PersistentList$EmptyList@1
+The predecessors for design_house are clojure.lang.PersistentList$EmptyList@1
+The predecessors for get_permit are (purchase_lot design_house)
+The predecessors for get_bids are (purchase_lot design_house)
+The predecessors for select_subs are (get_bids)
+The predecessors for excavate are (get_permit select_subs)
+The predecessors for construct_basement are (excavate)
+The predecessors for order_windows_doors are (purchase_lot design_house)
+The predecessors for get_windows_doors are (order_windows_doors)
+The predecessors for frame are (get_permit select_subs)
+The predecessors for rough_plumbing are (frame)
+The predecessors for rough_electric are (frame)
+The predecessors for roof are (frame)
+The predecessors for install_windows_doors are (get_windows_doors rough_plumbing rough_electric)
+The predecessors for vapor_barrier_insulation are (roof install_windows_doors)
+The predecessors for drywall are (vapor_barrier_insulation)
+The predecessors for inside_paint are (drywall)
+The predecessors for cupboards are (inside_paint)
+The predecessors for carpet_floor are (inside_paint)
+The predecessors for lights are (inside_paint)
+The predecessors for plumbing_heating are (inside_paint)
+The predecessors for siding are (roof install_windows_doors)
+The predecessors for outside_paint are (siding)
+The predecessors for move_house are (cupboards carpet_floor lights plumbing_heating outside_paint)
+The predecessors for connections are (construct_basement move_house)
+The predecessors for landscape are (construct_basement move_house)
+The predecessors for move_in are (landscape connections)
+
+********* Testing gettime **********
+ The time for purchase_lot is 2
+The time for design_house is 5
+The time for get_permit is 1
+The time for get_bids is 14
+The time for select_subs is 2
+The time for excavate is 1
+The time for construct_basement is 7
+The time for order_windows_doors is 3
+The time for get_windows_doors is 10
+The time for frame is 12
+The time for rough_plumbing is 5
+The time for rough_electric is 3
+The time for roof is 4
+The time for install_windows_doors is 7
+The time for vapor_barrier_insulation is 2
+The time for drywall is 5
+The time for inside_paint is 3
+The time for cupboards is 3
+The time for carpet_floor is 5
+The time for lights is 2
+The time for plumbing_heating is 6
+The time for siding is 2
+The time for outside_paint is 3
+The time for move_house is 1
+The time for connections is 2
+The time for landscape is 4
+The time for move_in is 0
+
+********* Testing get_all_preds **********
+ All of the predecessors for purchase_lot are clojure.lang.PersistentList$EmptyList@1
+All of the predecessors for design_house are clojure.lang.PersistentList$EmptyList@1
+All of the predecessors for get_permit are (design_house purchase_lot)
+All of the predecessors for get_bids are (design_house purchase_lot)
+All of the predecessors for select_subs are (design_house purchase_lot get_bids)
+All of the predecessors for excavate are (get_bids design_house purchase_lot select_subs get_permit)
+All of the predecessors for construct_basement are (get_bids design_house purchase_lot select_subs get_permit excavate)
+All of the predecessors for order_windows_doors are (design_house purchase_lot)
+All of the predecessors for get_windows_doors are (design_house purchase_lot order_windows_doors)
+All of the predecessors for frame are (get_bids design_house purchase_lot select_subs get_permit)
+All of the predecessors for rough_plumbing are (get_bids design_house purchase_lot select_subs get_permit frame)
+All of the predecessors for rough_electric are (get_bids design_house purchase_lot select_subs get_permit frame)
+All of the predecessors for roof are (get_bids design_house purchase_lot select_subs get_permit frame)
+All of the predecessors for install_windows_doors are (get_bids select_subs get_permit design_house purchase_lot frame order_windows_doors rough_electric rough_plumbing get_windows_doors)
+All of the predecessors for vapor_barrier_insulation are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof)
+All of the predecessors for drywall are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation)
+All of the predecessors for inside_paint are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall)
+All of the predecessors for cupboards are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall inside_paint)
+All of the predecessors for carpet_floor are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall inside_paint)
+All of the predecessors for lights are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall inside_paint)
+All of the predecessors for plumbing_heating are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall inside_paint)
+All of the predecessors for siding are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof)
+All of the predecessors for outside_paint are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof siding)
+All of the predecessors for move_house are (get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall siding inside_paint outside_paint plumbing_heating lights carpet_floor cupboards)
+All of the predecessors for connections are (order_windows_doors rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall get_bids design_house purchase_lot siding inside_paint select_subs get_permit outside_paint plumbing_heating lights carpet_floor cupboards excavate move_house construct_basement)
+All of the predecessors for landscape are (order_windows_doors rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall get_bids design_house purchase_lot siding inside_paint select_subs get_permit outside_paint plumbing_heating lights carpet_floor cupboards excavate move_house construct_basement)
+All of the predecessors for move_in are (order_windows_doors rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall get_bids design_house purchase_lot siding inside_paint select_subs get_permit outside_paint plumbing_heating lights carpet_floor cupboards excavate move_house construct_basement connections landscape)
+
+********* Testing precedes **********
+ Testing to determine if 'construct_basement must precede 'landscape: true
+Testing to determine if 'landscape must precede 'construct_basement: 
+Testing to determine if 'install_windows_doors must precede 'vapor_barrier_insulation: true
+Testing to determine if 'rough_electric must precede 'vapor_barrier_insulation: true
+Testing to determine if 'design_house must precede 'purhcase_lot: 
+
+********* Testing start_day **********
+ Job purchase_lot can start on  1
+Job design_house can start on  1
+Job get_permit can start on  8
+Job get_bids can start on  8
+Job select_subs can start on  22
+Job excavate can start on  25
+Job construct_basement can start on  26
+Job order_windows_doors can start on  8
+Job get_windows_doors can start on  11
+Job frame can start on  25
+Job rough_plumbing can start on  37
+Job rough_electric can start on  37
+Job roof can start on  37
+Job install_windows_doors can start on  58
+Job vapor_barrier_insulation can start on  69
+Job drywall can start on  71
+Job inside_paint can start on  76
+Job cupboards can start on  79
+Job carpet_floor can start on  79
+Job lights can start on  79
+Job plumbing_heating can start on  79
+Job siding can start on  69
+Job outside_paint can start on  71
+Job move_house can start on  100
+Job connections can start on  109
+Job landscape can start on  109
+Job move_in can start on  115
+
+********* Testing get_max **********
+ Testing (move_in landscape connections move_house outside_paint siding plumbing_heating lights carpet_floor cupboards inside_paint drywall vapor_barrier_insulation install_windows_doors roof rough_electric rough_plumbing frame get_windows_doors order_windows_doors construct_basement excavate select_subs get_bids get_permit design_house purchase_lot) to determine the job with the greatest length: (115 move_in)
+Testing (move_in connections outside_paint plumbing_heating carpet_floor inside_paint vapor_barrier_insulation roof rough_plumbing get_windows_doors construct_basement select_subs get_permit purchase_lot) to determine the job with the greatest length: (115 move_in)
+Testing (move_in landscape connections move_house outside_paint siding plumbing_heating lights carpet_floor cupboards inside_paint drywall vapor_barrier_insulation install_windows_doors roof rough_electric rough_plumbing frame get_windows_doors order_windows_doors construct_basement excavate select_subs get_bids get_permit design_house purchase_lot) to determine the job with the greatest length: (115 move_in)
+Testing (install_windows_doors roof rough_electric rough_plumbing frame get_windows_doors order_windows_doors construct_basement excavate select_subs get_bids get_permit design_house purchase_lot) to determine the job with the greatest length: (58 install_windows_doors)
+Testing (move_in landscape connections move_house outside_paint siding plumbing_heating lights carpet_floor cupboards inside_paint drywall vapor_barrier_insulation install_windows_doors) to determine the job with the greatest length: (115 move_in)
+
+********* Testing critical_path **********
+ The jobs on the critical path to getting purchase_lot done on time is: (nil)
+The jobs on the critical path to getting design_house done on time is: (nil)
+The jobs on the critical path to getting get_permit done on time is: (purchase_lot)
+The jobs on the critical path to getting get_bids done on time is: (purchase_lot)
+The jobs on the critical path to getting select_subs done on time is: (get_bids design_house purchase_lot)
+The jobs on the critical path to getting excavate done on time is: (select_subs design_house purchase_lot get_bids)
+The jobs on the critical path to getting construct_basement done on time is: (excavate get_bids design_house purchase_lot select_subs get_permit)
+The jobs on the critical path to getting order_windows_doors done on time is: (purchase_lot)
+The jobs on the critical path to getting get_windows_doors done on time is: (order_windows_doors design_house purchase_lot)
+The jobs on the critical path to getting frame done on time is: (select_subs design_house purchase_lot get_bids)
+The jobs on the critical path to getting rough_plumbing done on time is: (frame get_bids design_house purchase_lot select_subs get_permit)
+The jobs on the critical path to getting rough_electric done on time is: (frame get_bids design_house purchase_lot select_subs get_permit)
+The jobs on the critical path to getting roof done on time is: (frame get_bids design_house purchase_lot select_subs get_permit)
+The jobs on the critical path to getting install_windows_doors done on time is: (rough_plumbing get_bids design_house purchase_lot select_subs get_permit frame)
+The jobs on the critical path to getting vapor_barrier_insulation done on time is: (install_windows_doors get_bids select_subs get_permit design_house purchase_lot frame order_windows_doors rough_electric rough_plumbing get_windows_doors)
+The jobs on the critical path to getting drywall done on time is: (vapor_barrier_insulation get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof)
+The jobs on the critical path to getting inside_paint done on time is: (drywall get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation)
+The jobs on the critical path to getting cupboards done on time is: (inside_paint get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall)
+The jobs on the critical path to getting carpet_floor done on time is: (inside_paint get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall)
+The jobs on the critical path to getting lights done on time is: (inside_paint get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall)
+The jobs on the critical path to getting plumbing_heating done on time is: (inside_paint get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall)
+The jobs on the critical path to getting siding done on time is: (install_windows_doors get_bids select_subs get_permit design_house purchase_lot frame order_windows_doors rough_electric rough_plumbing get_windows_doors)
+The jobs on the critical path to getting outside_paint done on time is: (siding get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof)
+The jobs on the critical path to getting move_house done on time is: (cupboards get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame install_windows_doors roof vapor_barrier_insulation drywall inside_paint)
+The jobs on the critical path to getting connections done on time is: (move_house get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall siding inside_paint outside_paint plumbing_heating lights carpet_floor cupboards)
+The jobs on the critical path to getting landscape done on time is: (move_house get_bids design_house purchase_lot order_windows_doors select_subs get_permit rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall siding inside_paint outside_paint plumbing_heating lights carpet_floor cupboards)
+The jobs on the critical path to getting move_in done on time is: (landscape order_windows_doors rough_electric rough_plumbing get_windows_doors frame vapor_barrier_insulation install_windows_doors roof drywall get_bids design_house purchase_lot siding inside_paint select_subs get_permit outside_paint plumbing_heating lights carpet_floor cupboards excavate move_house construct_basement)
+
+********* Testing depends_on  **********
+ Job purchase_lot is depended on by: (order_windows_doors get_bids get_permit)
+Job design_house is depended on by: (order_windows_doors get_bids get_permit)
+Job get_permit is depended on by: (frame excavate)
+Job get_bids is depended on by: (select_subs)
+Job select_subs is depended on by: (frame excavate)
+Job excavate is depended on by: (construct_basement)
+Job construct_basement is depended on by: (landscape connections)
+Job order_windows_doors is depended on by: (get_windows_doors)
+Job get_windows_doors is depended on by: (install_windows_doors)
+Job frame is depended on by: (roof rough_electric rough_plumbing)
+Job rough_plumbing is depended on by: (install_windows_doors)
+Job rough_electric is depended on by: (install_windows_doors)
+Job roof is depended on by: (siding vapor_barrier_insulation)
+Job install_windows_doors is depended on by: (siding vapor_barrier_insulation)
+Job vapor_barrier_insulation is depended on by: (drywall)
+Job drywall is depended on by: (inside_paint)
+Job inside_paint is depended on by: (plumbing_heating lights carpet_floor cupboards)
+Job cupboards is depended on by: (move_house)
+Job carpet_floor is depended on by: (move_house)
+Job lights is depended on by: (move_house)
+Job plumbing_heating is depended on by: (move_house)
+Job siding is depended on by: (outside_paint)
+Job outside_paint is depended on by: (move_house)
+Job move_house is depended on by: (landscape connections)
+Job connections is depended on by: (move_in)
+Job landscape is depended on by: (move_in)
+Job move_in is depended on by: clojure.lang.PersistentList$EmptyList@1
+
+********* Testing depends_on_all **********
+ Job purchase_lot is depended on by ALL of the following: (plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall move_in siding vapor_barrier_insulation landscape connections install_windows_doors roof rough_electric rough_plumbing construct_basement get_windows_doors select_subs frame excavate order_windows_doors get_bids get_permit)
+Job design_house is depended on by ALL of the following: (plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall move_in siding vapor_barrier_insulation landscape connections install_windows_doors roof rough_electric rough_plumbing construct_basement get_windows_doors select_subs frame excavate order_windows_doors get_bids get_permit)
+Job get_permit is depended on by ALL of the following: (plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall move_in siding vapor_barrier_insulation install_windows_doors landscape connections roof rough_electric rough_plumbing construct_basement frame excavate)
+Job get_bids is depended on by ALL of the following: (plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall move_in siding vapor_barrier_insulation install_windows_doors landscape connections roof rough_electric rough_plumbing construct_basement frame excavate select_subs)
+Job select_subs is depended on by ALL of the following: (plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall move_in siding vapor_barrier_insulation install_windows_doors landscape connections roof rough_electric rough_plumbing construct_basement frame excavate)
+Job excavate is depended on by ALL of the following: (move_in landscape connections construct_basement)
+Job construct_basement is depended on by ALL of the following: (move_in landscape connections)
+Job order_windows_doors is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation install_windows_doors get_windows_doors)
+Job get_windows_doors is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation install_windows_doors)
+Job frame is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation install_windows_doors roof rough_electric rough_plumbing)
+Job rough_plumbing is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation install_windows_doors)
+Job rough_electric is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation install_windows_doors)
+Job roof is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation)
+Job install_windows_doors is depended on by ALL of the following: (move_in landscape connections plumbing_heating lights carpet_floor cupboards move_house inside_paint outside_paint drywall siding vapor_barrier_insulation)
+Job vapor_barrier_insulation is depended on by ALL of the following: (move_in landscape connections move_house plumbing_heating lights carpet_floor cupboards inside_paint drywall)
+Job drywall is depended on by ALL of the following: (move_in landscape connections move_house plumbing_heating lights carpet_floor cupboards inside_paint)
+Job inside_paint is depended on by ALL of the following: (move_in landscape connections move_house plumbing_heating lights carpet_floor cupboards)
+Job cupboards is depended on by ALL of the following: (move_in landscape connections move_house)
+Job carpet_floor is depended on by ALL of the following: (move_in landscape connections move_house)
+Job lights is depended on by ALL of the following: (move_in landscape connections move_house)
+Job plumbing_heating is depended on by ALL of the following: (move_in landscape connections move_house)
+Job siding is depended on by ALL of the following: (move_in landscape connections move_house outside_paint)
+Job outside_paint is depended on by ALL of the following: (move_in landscape connections move_house)
+Job move_house is depended on by ALL of the following: (move_in landscape connections)
+Job connections is depended on by ALL of the following: (move_in)
+Job landscape is depended on by ALL of the following: (move_in)
+Job move_in is depended on by ALL of the following: clojure.lang.PersistentList$EmptyList@1
+
