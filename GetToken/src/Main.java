@@ -1,25 +1,7 @@
-/*
- * Levels Beyond CONFIDENTIAL
- *
- * Copyright 2003 - 2015 Levels Beyond Incorporated
- * All Rights Reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Levels Beyond Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Levels Beyond Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is unlawful and strictly forbidden unless prior written permission is obtained
- * from Levels Beyond Incorporated.
- */
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by jessenelson on 3/13/15.
@@ -30,7 +12,7 @@ public class Main {
     private static final Map<String, Integer> reservedTokens = new HashMap<String, Integer>();
     private static final Map<String, Integer> operatorSeperatorTokens = new HashMap<String, Integer>();
 
-    private static  String operatorsSeperatorsRegEx = "([-+*/()<>=;\n.]|:=|[0-9]| )";
+    private static final String operatorsSeperatorsRegEx = "([-+*/()<>=;\n.\"]|:=|[0-9]| )";
     // Inititalize token map
     static {
         // Reserved words
@@ -68,8 +50,8 @@ public class Main {
 
     private static PushbackReader in;
 
-    public static void main (String args []) throws Exception{
-
+    public static void main (String args []) {
+        // Set standard in to provided input file
         if (args.length == 1) {
             // Handle Windows file system
             String pathToFile = System.getProperty("user.dir").replace("\\", "/");
@@ -77,32 +59,22 @@ public class Main {
             try {
                 System.setIn(new FileInputStream(new File(pathToFile)));
             } catch (IOException e) {
-                System.out.println("Error setting system in to " + pathToFile);
+                print("Error setting system in to " + pathToFile + " " + e.getMessage());
             }
         }
         in = new PushbackReader(new InputStreamReader(System.in));
+
         char currChar;
         // '\uFFFF' is returned when end of file is read
         while ((currChar = readIn()) != '\uFFFF') {
             getToken(currChar);
         }
-    }
-
-    public static boolean isOperatorSeperator (String key) {
-
-        return operatorSeperatorTokens.containsKey(key);
-    }
-
-    private static String transformKey (String key) {
-        if (key.equals("\n")) {
-            return "EOLN";
-        }
-        else if (key.equals(" ")) {
-            return "SPACE";
-        }
-
-        else {
-            return key;
+        try {
+            in.close();
+            System.exit(0);
+        } catch (IOException e) {
+            print("Error closing input stream " + e.getMessage());
+            System.exit(-1);
         }
     }
 
@@ -110,15 +82,29 @@ public class Main {
         char nextChar = readIn();
         String key;
         if (currChar == '.') {
-            if (isNumber(nextChar)) {
+            if (isDigit(nextChar)) {
                 print(handleNumber(readIn(), "" + currChar + nextChar, true, true));
+            }
+            // Make sure there is not a digit following a ..
+            else if (nextChar == '.') {
+                while (nextChar == '.') {
+                    print("Token: " + '.' + " Value: " + 31);
+                    nextChar = readIn();
+                }
+                if (isDigit(nextChar)) {
+                    throw new InputMismatchException("White space is required between PERIOD and NUMBER." +
+                                                     " Numbers are allowed only one decimal point");
+                }
+                else {
+                    unreadIn(nextChar);
+                }
             }
             else {
                 unreadIn(nextChar);
                 print("Token: " + '.' + " Value: " + 31);
             }
         }
-        else if (isNumber(currChar)) {
+        else if (isDigit(currChar)) {
             print(handleNumber(nextChar, "" + currChar, false, true));
         }
         else if (currChar == '"') {
@@ -141,7 +127,7 @@ public class Main {
             //Split the string so that the first item in the array will contain the reserved word or identifier
             String result = string.split(operatorsSeperatorsRegEx)[0];
             //Put separating character(s) back on input stack
-            unreadIn(string.substring(result.length(), string.length()).toCharArray()); // Really only pushing back one character but reliant on regex match so ...
+            unreadIn(string.substring(result.length(), string.length()).toCharArray());
             if (reservedTokens.containsKey(result.toUpperCase())) {
                 return "Token: " + "RESERVED--> " + result + " Value: " +  reservedTokens.get(result);
             }
@@ -163,14 +149,15 @@ public class Main {
                 return handleNumber(readIn(), number + currChar, true, false);
             }
         }
-        if (!(isNumber(currChar))) {
+
+        if (!(isDigit(currChar))) {
             if (!validNumber) {
-                throw new InputMismatchException("White space is required between PERIOD and NUMBER. No digits following the decimal place");
+                throw new InputMismatchException("White space is required between PERIOD and NUMBER. No digits following the decimal point");
             }
             unreadIn(currChar);
             return "Token: " + "NUMBER--> " + number + " Value: " +  29;
         }
-        // Set validNumber to true as we have encountered at least one digit after the decimal place 
+        // Set validNumber to true as we have encountered at least one digit after the decimal place if one exists
         return handleNumber(readIn(), number + currChar, isFloatingPoint, true);
     }
 
@@ -188,7 +175,7 @@ public class Main {
     private static char readIn() {
         char input = '\uFFFF';
         try {
-            input=(char)in.read();
+            input = (char)in.read();
         } catch (IOException e) {
             print("Error reading from standard in " + e.getMessage());
             System.exit(-1);
@@ -214,7 +201,21 @@ public class Main {
         }
     }
 
-    private static boolean isNumber (int c) {
+    private static boolean isDigit (int c) {
         return c >= '0' && c <= '9';
+    }
+
+    private static boolean isOperatorSeperator (String key) {return operatorSeperatorTokens.containsKey(key);}
+
+    private static String transformKey (String key) {
+        if (key.equals("\n")) {
+            return "EOLN";
+        }
+        else if (key.equals(" ")) {
+            return "SPACE";
+        }
+        else {
+            return key;
+        }
     }
 }
