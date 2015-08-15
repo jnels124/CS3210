@@ -35,14 +35,14 @@ public class StatementList implements TokenRule {
     }
 
     @Override
-    public StatementList execute() throws Exception {
-        this.statement = new StatementNode().execute();
+    public StatementList build() throws Exception {
+        this.statement = new StatementNode().build();
         if (statement != null) {
             // Run execution for specific assignemnt node type
-            this.statement = statement.execute();
+            this.statement = statement.build();
 
             Program.addStatement(this.statement);
-            this.statementTail = new StatementTail().execute();
+            this.statementTail = new StatementTail().build();
             return this;
         }
         return null;
@@ -51,7 +51,7 @@ public class StatementList implements TokenRule {
     // Unused
     @Override
     public String evaluate() {
-        return "";//this.statement.evaluate() + this.statementTail.evaluate();
+        return "";
     }
 
 }

@@ -45,7 +45,7 @@ public class Main {
         operatorSeperatorTokens.put(";", 25);
         operatorSeperatorTokens.put(" ", 26);
         operatorSeperatorTokens.put("\n", 27);
-        operatorSeperatorTokens.put(".", 26);
+        operatorSeperatorTokens.put(".", 31);
     }
 
     private static PushbackReader in;

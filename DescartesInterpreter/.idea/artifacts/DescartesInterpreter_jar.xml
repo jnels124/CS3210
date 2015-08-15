@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DescartesInterpreter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DescartesInterpreter_jar</output-path>
+    <root id="archive" name="DescartesInterpreter.jar">
+      <element id="module-output" name="DescartesInterpreter" />
+    </root>
+  </artifact>
+</component>

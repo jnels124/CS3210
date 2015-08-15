@@ -34,18 +34,23 @@ public class Program implements TokenRule {
     }
 
     @Override
-    public Program execute() throws Exception {
+    public Program build() throws Exception {
         tokenUtil.parse();
         if (!validTokenSet.containsKey(tokenUtil.getCurrentToken())) {
-            throw new Exception("Error generating program. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+            throw new Exception("Error generating program. Current token: " +
+                                Program.tokenUtil.getCurrentToken() + " value: "
+                                + Program.tokenUtil.getCurrentTokenValue());
         }
-        StatementList statementList = new StatementList().execute();
+        StatementList statementList = new StatementList().build();
         if (!tokenUtil.getCurrentToken().equals(".")) {
-            throw new Exception("Unable to locate end of program" + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+            throw new Exception("Unable to locate end of program. Current Token:  " +
+                                Program.tokenUtil.getCurrentToken() +  "Token value: " +
+                                Program.tokenUtil.getCurrentTokenValue());
         }
 
         for(StatementNode stmnt : statements) {
-            System.out.println("Executing " + stmnt.getRuleOwner() + " Result: " + stmnt.evaluate());
+            System.out.println("Executing " + stmnt.getRuleOwner() +
+                                " Result: " + stmnt.evaluate());
         }
         return this;
     }
@@ -58,12 +63,14 @@ public class Program implements TokenRule {
     public static void main (String args []) {
         tokenUtil = new TokenUtil(args[0]);
         try {
-            Program prog = new Program().execute();
+            Program prog = new Program().build();
             for (Map.Entry<String, String> entry : symbolTable.entrySet()) {
-                System.out.println("ID: " + entry.getKey() + " VALUE: " + entry.getValue());
+                System.out.println("ID: " + entry.getKey() + " VALUE: " +
+                                   entry.getValue());
             }
         } catch (Exception e) {
-            System.out.println("Caught exception building statements:\n" + e.getMessage());
+            System.out.println("Caught exception building statements:\n" +
+                               e.getMessage());
         }
     }
 
@@ -72,7 +79,8 @@ public class Program implements TokenRule {
     }
     public static void updateSymbols(String key, String value) {
         symbolTable.put(key, value);
-        System.out.println("Updated symbol table with key: " + key + " value: " + value);
+        System.out.println("Updated symbol table with key: " + key +
+                            " value: " + value);
     }
 
     public static Number getNumber(String str) {
@@ -87,7 +95,8 @@ public class Program implements TokenRule {
         try {
             return NumberFormat.getInstance().parse(toEval);
         } catch (Exception e) {
-            System.out.println("Unable to evaluate " + toEval + "\nException:\n" + e.getMessage());
+            System.out.println("Unable to evaluate " + toEval
+                                + "\nException:\n" + e.getMessage());
             System.exit(-1);
         }
         return null;

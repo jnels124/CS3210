@@ -17,7 +17,8 @@ public class TokenUtil {
     public static final Map<String, Integer> tokenIDMap = new HashMap<String, Integer>();
 	private static PushbackReader in;
 
-	private static final String operatorsSeperatorsRegEx = "([-+*/()<>=;\n.\"]|:=|[0-9]| )";
+	private static final String operatorsSeperatorsRegEx =
+								"([-+*/()<>=;\n.\"]|:=|[0-9]| )";
 	// Inititalize token map
 	static {
 		// Reserved words
@@ -107,22 +108,9 @@ public class TokenUtil {
 		if (currChar == '.') {
 			if (isDigit(nextChar)) {
                 token = "CONST";
-                tokenValue = handleNumber(readIn(), "" + currChar + nextChar, true, true);
+                tokenValue = handleNumber(readIn(), "" + currChar +
+										  nextChar, true, true);
 			}
-			// Make sure there is not a digit following a ..
-//			else if (nextChar == '.') {
-//				while (nextChar == '.') {
-//					print("Token: " + '.' + " Value: " + 31);
-//					nextChar = readIn();
-//				}
-//				if (isDigit(nextChar)) {
-//					throw new InputMismatchException("White space is required between PERIOD and NUMBER." +
-//							" Numbers are allowed only one decimal point");
-//				}
-//				else {
-//					unreadIn(nextChar);
-//				}
-//			}
 			else {
 				unreadIn(nextChar);
                 token = ".";
@@ -133,19 +121,6 @@ public class TokenUtil {
             token = "CONST";
             tokenValue = handleNumber(nextChar, "" + currChar, false, true);
 		}
-//		else if (currChar == '"') {
-//			print(handleString(nextChar, "" + currChar));
-//		}
-//		else if (currChar == '-') {
-//			if(isDigit(nextChar) || nextChar == '.') {
-//				token = "CONST";
-//				tokenValue = handleNumber(nextChar, "" + currChar, false, true);
-//			}
-//			else {
-//				token = "OPERATOR";
-//				tokenValue = "-";
-//			}
-//		}
 		else if (isOperatorSeperator(key = "" + currChar + nextChar)) {
             token = key;
             tokenValue = transformKey(key);
@@ -201,7 +176,10 @@ public class TokenUtil {
 		return handleReserveredOrIdentifier(string + readIn());
 	}
 
-	private static String handleNumber(char currChar, String number, boolean isFloatingPoint, boolean validNumber) throws InputMismatchException {
+	private static String handleNumber(char currChar,
+									   String number,
+									   boolean isFloatingPoint,
+									   boolean validNumber) throws InputMismatchException {
 		if (currChar == '.') {
 			if (isFloatingPoint) {
 				throw new InputMismatchException("White space is required between PERIOD and NUMBER");
@@ -214,7 +192,8 @@ public class TokenUtil {
 
 		if (!(isDigit(currChar))) {
 			if (!validNumber) {
-				throw new InputMismatchException("White space is required between PERIOD and NUMBER. No digits following the decimal point");
+				throw new InputMismatchException("White space is required between PERIOD and NUMBER. " +
+						                         "No digits following the decimal point");
 			}
 			unreadIn(currChar);
 			return number;

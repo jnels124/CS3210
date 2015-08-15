@@ -1,6 +1,6 @@
 ABC := 19 ;
-PQR  := ABC +4 . 72 ;
-BEST := 0 . 0 ;
+PQR  := ABC +4.72 ;
+BEST := 0.0 ;
 IF  (PQR < 2 * ABC - 1) THEN
      READ (NEW) ;
 ELSE IF (PQR <= (3* ABC + 2))THEN
@@ -9,7 +9,7 @@ ELSE IF (PQR <= (3* ABC + 2))THEN
      ELSE
          READ (BEST);
          NEW := BEST-9;
-	 FI
+     FI
      I := 1;
 FI
 LOOP
@@ -18,14 +18,14 @@ LOOP
          BREAK;
      ELSE
          PRINT "OKAY";
-	 FI
-     IF (NEW/2 . 0 > ABC) THEN
+     FI
+     IF (NEW/2.0 > ABC) THEN
          PRINT "BIG" ;     
-	 FI
-     I := I + 1 ;
+     FI
+     I  := I + 1 ;
      IF (I > NEW) THEN
          BREAK ;
-	 FI
+     FI
 REPEAT
 PRINT "bye all"
 .

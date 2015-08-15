@@ -32,7 +32,7 @@ public class BoolFactorTail implements TokenRule {
     }
 
     @Override
-    public BoolFactorTail execute() throws Exception {
+    public BoolFactorTail build() throws Exception {
         return this;
     }
 

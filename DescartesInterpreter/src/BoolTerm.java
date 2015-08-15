@@ -29,12 +29,15 @@ public class BoolTerm implements TokenRule {
     }
 
     @Override
-    public BoolTerm execute() throws Exception {
-        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
-            throw new Exception("Error generating bool term. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+    public BoolTerm build() throws Exception {
+        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) &&
+            !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+            throw new Exception("Error generating bool term. Current token: " +
+                                Program.tokenUtil.getCurrentToken() + "value: " +
+                                Program.tokenUtil.getCurrentTokenValue());
         }
-        this.boolFactor = new BoolFactor().execute();
-        this.boolFactorTail = new BoolFactorTail().execute();
+        this.boolFactor = new BoolFactor().build();
+        this.boolFactorTail = new BoolFactorTail().build();
         return this;
     }
 

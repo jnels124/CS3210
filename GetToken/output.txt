@@ -1,0 +1,382 @@
+Token: IDENTIFIER--> ABC Value: 28
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: NUMBER--> 19 Value: 29
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: IDENTIFIER--> PQR Value: 28
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: IDENTIFIER--> ABC Value: 28
+Token: SPACE Value: 26
+Token: + Value: 17
+Token: NUMBER--> 4.72 Value: 29
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: IDENTIFIER--> BEST Value: 28
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: NUMBER--> 0.0 Value: 29
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: RESERVED--> IF Value: 1
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> PQR Value: 28
+Token: SPACE Value: 26
+Token: < Value: 23
+Token: SPACE Value: 26
+Token: NUMBER--> 2 Value: 29
+Token: SPACE Value: 26
+Token: * Value: 15
+Token: SPACE Value: 26
+Token: IDENTIFIER--> ABC Value: 28
+Token: SPACE Value: 26
+Token: - Value: 16
+Token: SPACE Value: 26
+Token: NUMBER--> 1 Value: 29
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: RESERVED--> THEN Value: 2
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> READ Value: 7
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> NEW Value: 28
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: RESERVED--> ELSE Value: 3
+Token: SPACE Value: 26
+Token: RESERVED--> IF Value: 1
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> PQR Value: 28
+Token: SPACE Value: 26
+Token: <= Value: 22
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: NUMBER--> 3 Value: 29
+Token: * Value: 15
+Token: SPACE Value: 26
+Token: IDENTIFIER--> ABC Value: 28
+Token: SPACE Value: 26
+Token: + Value: 17
+Token: SPACE Value: 26
+Token: NUMBER--> 2 Value: 29
+Token: ) Value: 12
+Token: ) Value: 12
+Token: RESERVED--> THEN Value: 2
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> READ Value: 7
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> BEST Value: 28
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: IDENTIFIER--> NEW Value: 28
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: IDENTIFIER--> BEST Value: 28
+Token: SPACE Value: 26
+Token: + Value: 17
+Token: SPACE Value: 26
+Token: NUMBER--> 4 Value: 29
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> ELSE Value: 3
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> READ Value: 7
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> BEST Value: 28
+Token: ) Value: 12
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: IDENTIFIER--> NEW Value: 28
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: IDENTIFIER--> BEST Value: 28
+Token: - Value: 16
+Token: NUMBER--> 9 Value: 29
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> FI Value: 4
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: IDENTIFIER--> I Value: 28
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: NUMBER--> 1 Value: 29
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: RESERVED--> FI Value: 4
+Token: EOLN Value: 27
+Token: RESERVED--> LOOP Value: 5
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> IF Value: 1
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: ( Value: 13
+Token: ( Value: 13
+Token: IDENTIFIER--> I Value: 28
+Token: SPACE Value: 26
+Token: = Value: 21
+Token: SPACE Value: 26
+Token: IDENTIFIER--> NEW Value: 28
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: RESERVED--> OR Value: 11
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> I Value: 28
+Token: >= Value: 20
+Token: IDENTIFIER--> NEW Value: 28
+Token: ) Value: 12
+Token: ) Value: 12
+Token: RESERVED--> AND Value: 10
+Token: ( Value: 13
+Token: IDENTIFIER--> BEST Value: 28
+Token: <> Value: 18
+Token: NUMBER--> 0 Value: 29
+Token: ) Value: 12
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: RESERVED--> THEN Value: 2
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> PRINT Value: 9
+Token: SPACE Value: 26
+Token: STRING--> "ERROR" Value: 30
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> BREAK Value: 6
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> ELSE Value: 3
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> PRINT Value: 9
+Token: SPACE Value: 26
+Token: STRING--> "OKAY" Value: 30
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> FI Value: 4
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> IF Value: 1
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> NEW Value: 28
+Token: / Value: 14
+Token: NUMBER--> 2.0 Value: 29
+Token: SPACE Value: 26
+Token: > Value: 19
+Token: SPACE Value: 26
+Token: IDENTIFIER--> ABC Value: 28
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: RESERVED--> THEN Value: 2
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> PRINT Value: 9
+Token: SPACE Value: 26
+Token: STRING--> "BIG" Value: 30
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> FI Value: 4
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: IDENTIFIER--> I Value: 28
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: := Value: 24
+Token: SPACE Value: 26
+Token: IDENTIFIER--> I Value: 28
+Token: SPACE Value: 26
+Token: + Value: 17
+Token: SPACE Value: 26
+Token: NUMBER--> 1 Value: 29
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> IF Value: 1
+Token: SPACE Value: 26
+Token: ( Value: 13
+Token: IDENTIFIER--> I Value: 28
+Token: SPACE Value: 26
+Token: > Value: 19
+Token: SPACE Value: 26
+Token: IDENTIFIER--> NEW Value: 28
+Token: ) Value: 12
+Token: SPACE Value: 26
+Token: RESERVED--> THEN Value: 2
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> BREAK Value: 6
+Token: SPACE Value: 26
+Token: ; Value: 25
+Token: EOLN Value: 27
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: SPACE Value: 26
+Token: RESERVED--> FI Value: 4
+Token: EOLN Value: 27
+Token: RESERVED--> REPEAT Value: 8
+Token: EOLN Value: 27
+Token: RESERVED--> PRINT Value: 9
+Token: SPACE Value: 26
+Token: STRING--> "bye all" Value: 30
+Token: EOLN Value: 27
+Token: . Value: 31
+Token: EOLN Value: 27

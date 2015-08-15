@@ -30,8 +30,9 @@ public class StatementTail implements TokenRule {
     }
 
     @Override
-    public StatementTail execute() throws Exception{
-        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+    public StatementTail build() throws Exception{
+        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken())
+           && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
             return null;
         }
         switch (Program.tokenUtil.getCurrentTokenValue()) {
@@ -40,13 +41,13 @@ public class StatementTail implements TokenRule {
                 return null;
             case ";" :
                 Program.tokenUtil.parse();
-                this.statement = new StatementNode().execute();
+                this.statement = new StatementNode().build();
                 // Execute the appropriate returned statement
                 if (this.statement != null) {
-                    this.statement = this.statement.execute();
+                    this.statement = this.statement.build();
                     Program.addStatement(this.statement);
                 }
-                this.statementTail = new StatementTail().execute();
+                this.statementTail = new StatementTail().build();
                 break;
         }
         return this;
@@ -54,6 +55,7 @@ public class StatementTail implements TokenRule {
 
     @Override
     public String evaluate() {
-        return (this.statement != null ? this.statement.evaluate() : "") + (this.statementTail != null ? this.statementTail.evaluate() : "");
+        return (this.statement != null ? this.statement.evaluate() : "") +
+                (this.statementTail != null ? this.statementTail.evaluate() : "");
     }
 }

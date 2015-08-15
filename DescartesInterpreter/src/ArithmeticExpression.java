@@ -28,12 +28,15 @@ public class ArithmeticExpression extends Expression implements TokenRule {
     }
 
     @Override
-    public ArithmeticExpression execute() throws Exception {
-        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
-            throw new Exception("Error generating arithmetic expression. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+    public ArithmeticExpression build() throws Exception {
+        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken())
+           && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+            throw new Exception("Error generating arithmetic expression. Current token: "
+                                + Program.tokenUtil.getCurrentToken() + "value: "
+                                + Program.tokenUtil.getCurrentTokenValue());
         }
-        this.term = new Term().execute();
-        this.termTail = new TermTail().execute();
+        this.term = new Term().build();
+        this.termTail = new TermTail().build();
         return this;
     }
 
@@ -47,10 +50,12 @@ public class ArithmeticExpression extends Expression implements TokenRule {
             for (int i = 0; i < termTailComps.length; i++) {
                 switch (termTailComps[i].charAt(0)) {
                     case '-':
-                        result = "" + (Program.getNumber(result).doubleValue() - Program.getNumber(termTailComps[++i]).doubleValue());
+                        result = "" + (Program.getNumber(result).doubleValue() -
+                                       Program.getNumber(termTailComps[++i]).doubleValue());
                         break;
                     case '+':
-                        result = "" + (Program.getNumber(result).doubleValue() + Program.getNumber(termTailComps[++i]).doubleValue());
+                        result = "" + (Program.getNumber(result).doubleValue() +
+                                       Program.getNumber(termTailComps[++i]).doubleValue());
                         break;
                 }
             }

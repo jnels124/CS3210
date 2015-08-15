@@ -28,12 +28,15 @@ public class Expression implements TokenRule {
     }
 
     @Override
-    public Expression execute() throws Exception{
-        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
-            throw new Exception("Error generating Expression. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+    public Expression build() throws Exception{
+        if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) &&
+           !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+            throw new Exception("Error generating Expression. Current token: " +
+                                Program.tokenUtil.getCurrentToken() + "value: " +
+                                Program.tokenUtil.getCurrentTokenValue());
         }
-        this.boolTerm = new BoolTerm().execute();
-        this.boolTermTail = new BoolTermTail().execute();
+        this.boolTerm = new BoolTerm().build();
+        this.boolTermTail = new BoolTermTail().build();
         return this;
     }
 

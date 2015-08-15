@@ -33,7 +33,7 @@ public class StatementNode implements TokenRule {
     }
 
     @Override
-    public StatementNode execute() throws Exception{
+    public StatementNode build() throws Exception{
         return getStatement();
     }
 
@@ -41,12 +41,6 @@ public class StatementNode implements TokenRule {
     public String evaluate() {
 
         return null;
-    }
-
-    // Node functionality
-
-    public StatementNode() {
-
     }
 
     private StatementNode getStatement () throws Exception {
@@ -58,7 +52,8 @@ public class StatementNode implements TokenRule {
             case ";" :
                 return null;
             default :
-                throw new Exception("Expected statement but got " + Program.tokenUtil.getCurrentToken()); // Error
+                throw new Exception("Expected statement but got " +
+                                    Program.tokenUtil.getCurrentToken()); // Error
         }
     }
 }

@@ -31,7 +31,7 @@ public class BoolTermTail implements TokenRule {
     }
 
     @Override //TODO: IMPLEMENT
-    public BoolTermTail execute() throws Exception {
+    public BoolTermTail build() throws Exception {
         return this;
     }
 

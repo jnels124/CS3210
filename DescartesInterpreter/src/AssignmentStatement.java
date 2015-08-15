@@ -26,19 +26,20 @@ public class AssignmentStatement extends StatementNode implements TokenRule {
     }
 
     @Override
-    public AssignmentStatement execute() throws Exception {
+    public AssignmentStatement build() throws Exception {
         if(!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken())) {
-            throw new Exception("Expected ID but got " + validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()));
+            throw new Exception("Expected ID but got " +
+                      validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()));
         }
         this.id = Program.tokenUtil.getCurrentTokenValue();
         // Should find :=
         Program.tokenUtil.parse();
         if (!Program.tokenUtil.getCurrentTokenValue().equals("BECOMES")) {
-            return null;
+            throw new Exception ("Expected := but got " +
+                                 Program.tokenUtil.getCurrentToken());
         }
-
         Program.tokenUtil.parse();
-        this.expression = new Expression().execute();
+        this.expression = new Expression().build();
 
         return this;
     }

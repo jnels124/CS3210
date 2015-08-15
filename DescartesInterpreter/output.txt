@@ -1,0 +1,14 @@
+Updated symbol table with key: B value: -40
+Executing assign-stmt Result: -40
+Updated symbol table with key: B value: -193.0
+Executing assign-stmt Result: -193.0
+Updated symbol table with key: C value: -8.053907487449326E-4
+Executing assign-stmt Result: -8.053907487449326E-4
+Updated symbol table with key: A value: 5.2
+Executing assign-stmt Result: 5.2
+Updated symbol table with key: D value: -197.00449891272248
+Executing assign-stmt Result: -197.00449891272248
+ID: D VALUE: -197.00449891272248
+ID: A VALUE: 5.2
+ID: B VALUE: -193.0
+ID: C VALUE: -8.053907487449326E-4

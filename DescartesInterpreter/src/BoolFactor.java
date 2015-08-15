@@ -28,8 +28,8 @@ public class BoolFactor implements TokenRule {
     }
 
     @Override
-    public BoolFactor execute() throws Exception {
-        this.arithmeticExpression = new ArithmeticExpression().execute();
+    public BoolFactor build() throws Exception {
+        this.arithmeticExpression = new ArithmeticExpression().build();
         return this;
     }
 

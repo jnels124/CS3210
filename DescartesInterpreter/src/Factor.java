@@ -37,26 +37,36 @@ public class Factor implements TokenRule {
     }
 
     @Override
-    public Factor execute() throws Exception {
-        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())){
-            throw new Exception("Error generating Factor. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+    public Factor build() throws Exception {
+        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) &&
+            !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())){
+            throw new Exception("Error generating Factor. Current token: " +
+                                Program.tokenUtil.getCurrentToken() + "value: " +
+                                Program.tokenUtil.getCurrentTokenValue());
         }
         switch (Program.tokenUtil.getCurrentToken()) {
             case "(" :
                 Program.tokenUtil.parse();
                 this.operator = "(";
-                this.tokenRule = new Expression().execute();
+                this.tokenRule = new Expression().build();
                 if(!Program.tokenUtil.getCurrentTokenValue().equals(")")) {
-                    throw new Exception("Error generating expression for factor. Current token: " + Program.tokenUtil.getCurrentToken() + " value: " + Program.tokenUtil.getCurrentTokenValue());
+                    throw new Exception("Error generating expression for factor. " +
+                                        "Current token: " +
+                                        Program.tokenUtil.getCurrentToken() + " value: " +
+                                        Program.tokenUtil.getCurrentTokenValue());
                 }
                 Program.tokenUtil.parse();
                 break;
             case "-" :
                 Program.tokenUtil.parse();
                 this.operator = "-";
-                Factor expectedFactor = new Factor().execute();
+                Factor expectedFactor = new Factor().build();
                 if (expectedFactor == null) {
-                    throw new Exception("Error generating factor for factor -. Current token: " + Program.tokenUtil.getCurrentToken() + " value: " + Program.tokenUtil.getCurrentTokenValue());
+                    throw new Exception("Error generating factor for factor -. " +
+                                        "Current token: " +
+                                        Program.tokenUtil.getCurrentToken() +
+                                        " value: " +
+                                        Program.tokenUtil.getCurrentTokenValue());
                 }
                 this.tokenRule = expectedFactor;
                 this.operator += expectedFactor.operator;
@@ -72,6 +82,7 @@ public class Factor implements TokenRule {
 
     @Override
     public String evaluate() {
-        return !this.operator.equals("(") ? this.operator : this.tokenRule.evaluate();
+        return !this.operator.equals("(") ?
+               this.operator : this.tokenRule.evaluate();
     }
 }

@@ -29,13 +29,16 @@ public class Term implements TokenRule {
     }
 
     @Override
-    public Term execute() throws Exception {
-        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
-            throw new Exception("Error generating term. Current token: " + Program.tokenUtil.getCurrentToken() + "value: " + Program.tokenUtil.getCurrentTokenValue());
+    public Term build() throws Exception {
+        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) &&
+            !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+            throw new Exception("Error generating term. Current token: " +
+                                Program.tokenUtil.getCurrentToken() + "value: " +
+                                Program.tokenUtil.getCurrentTokenValue());
         }
 
-        this.factor = new Factor().execute();
-        this.factorTail = new FactorTail().execute();
+        this.factor = new Factor().build();
+        this.factorTail = new FactorTail().build();
         return this;
     }
 
@@ -51,10 +54,14 @@ public class Term implements TokenRule {
             for (int i =0; i < factorTailComponents.length; i++) {
                 switch (factorTailComponents[i].charAt(0)) {
                     case '/' :
-                        result = "" + Program.getNumber(result).doubleValue() / Program.getNumber(factorTailComponents[++i]).doubleValue();
+                        result = "" + Program.getNumber(result).doubleValue() /
+                                      Program.getNumber(factorTailComponents[++i])
+                                              .doubleValue();
                         break;
                     case '*' :
-                        result = "" + Program.getNumber(result).doubleValue() * Program.getNumber(factorTailComponents[++i]).doubleValue();
+                        result = "" + Program.getNumber(result).doubleValue() *
+                                      Program.getNumber(factorTailComponents[++i])
+                                              .doubleValue();
                 }
             }
 

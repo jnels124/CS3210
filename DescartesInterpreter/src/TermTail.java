@@ -42,20 +42,20 @@ public class TermTail implements TokenRule {
     }
 
     @Override
-    public TermTail execute() throws Exception {
+    public TermTail build() throws Exception {
         switch(Program.tokenUtil.getCurrentTokenValue()) {
             case "+" :
                 this.operator = "+";
                 Program.tokenUtil.parse();
-                this.term = new Term().execute();
-                this.termTail = new TermTail().execute();
+                this.term = new Term().build();
+                this.termTail = new TermTail().build();
 
                 break;
             case "-" :
                 this.operator = "-";
                 Program.tokenUtil.parse();
-                this.term = new Term().execute();
-                this.termTail = new TermTail().execute();
+                this.term = new Term().build();
+                this.termTail = new TermTail().build();
                 break;
             default:
                 return null;
@@ -65,6 +65,7 @@ public class TermTail implements TokenRule {
 
     @Override
     public String evaluate() {
-        return this.operator + " " + this.term.evaluate() + " " + (this.termTail != null ? this.termTail.evaluate() : "");
+        return this.operator + " " + this.term.evaluate() + " " +
+               (this.termTail != null ? this.termTail.evaluate() : "");
     }
 }

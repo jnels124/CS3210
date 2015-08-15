@@ -46,8 +46,9 @@ public class FactorTail implements TokenRule {
     }
 
     @Override
-    public FactorTail execute() throws Exception {
-        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) && !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
+    public FactorTail build() throws Exception {
+        if (!validTokenSet.containsKey(Program.tokenUtil.getCurrentToken()) &&
+            !validTokenSet.containsKey(Program.tokenUtil.getCurrentTokenValue())) {
             return null;
         }
         switch (Program.tokenUtil.getCurrentTokenValue()) {
@@ -62,8 +63,8 @@ public class FactorTail implements TokenRule {
         }
 
         Program.tokenUtil.parse();
-        this.factor = new Factor().execute();
-        this.factorTail = new FactorTail().execute();
+        this.factor = new Factor().build();
+        this.factorTail = new FactorTail().build();
         return this;
     }
 
@@ -71,7 +72,8 @@ public class FactorTail implements TokenRule {
     public String evaluate() {
 
         if (this.operator != null) {
-            return this.operator + " " + this.factor.evaluate() + " " + (this.factorTail != null ? this.factorTail.evaluate() : "");
+            return this.operator + " " + this.factor.evaluate() + " " +
+                   (this.factorTail != null ? this.factorTail.evaluate() : "");
         }
 
         assert(this.factor == null);
